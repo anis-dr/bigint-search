@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "dotenv -- node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv-cli": "^7.4.1",
     "mysql": "^2.18.1"
   }
 }
