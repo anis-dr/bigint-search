@@ -35,7 +35,7 @@ connection.connect((err) => {
       INSERT INTO bigint_columns (TableName, ColumnName)
       SELECT TABLE_NAME, COLUMN_NAME
       FROM information_schema.columns
-      WHERE TABLE_SCHEMA = ${process.env.MYSQL_DATABASE}  -- Change to your database name
+      WHERE TABLE_SCHEMA = \'${process.env.MYSQL_DATABASE}\'
         AND DATA_TYPE = 'bigint';
     `;
 
