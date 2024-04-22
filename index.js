@@ -61,6 +61,9 @@ connection.connect((err) => {
           return;
         }
 
+        console.log('Generated queries:');
+        console.log(JSON.stringify(result, null, 2));
+
         // Step 4: Execute each generated query
         result.forEach((row) => {
           const generatedQuery = row.GeneratedQuery;
