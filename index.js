@@ -64,9 +64,6 @@ connection.connect((err) => {
         // Step 4: Execute each generated query
         result.forEach((row) => {
           const generatedQuery = row.GeneratedQuery;
-
-          console.log('Executing:', generatedQuery);  // Log the query for reference
-
           connection.query(generatedQuery, (err, resultSet) => {
             if (err) {
               console.error('Error executing query:', err);
@@ -74,11 +71,13 @@ connection.connect((err) => {
             }
 
             if (resultSet.length > 0) {
+              console.log('Query: ', generatedQuery);
               console.log('Results:');
               resultSet.forEach((record) => {
                 console.log(JSON.stringify(record, null, 2));  // Output in JSON format for clarity
               });
             } else {
+              console.log('Query: ', generatedQuery);
               console.log('No records found exceeding INT capacity for this query.');
             }
           });
@@ -86,9 +85,4 @@ connection.connect((err) => {
       });
     });
   });
-});
-
-// Close the connection when done
-connection.end(() => {
-  console.log('Connection closed.');
 });
